@@ -96,10 +96,10 @@ def chat():
     session["history"].append({"role": "user", "content": user_message})
 
    memory_context = ""
-if session["user_name"]:
-    user = get_user(session["user_name"])
-    if user:
-        memory_context = f"\n\nIMPORTANT: You have met this user before. Their name is {user[0]}. Their fitness goal is {user[1]}. They last talked to you on {user[2]}. Greet them warmly as a returning user and reference what you know about them."}"
+    if session["user_name"]:
+        user = get_user(session["user_name"])
+        if user:
+            memory_context = f"\n\nIMPORTANT: You have met this user before. Their name is {user[0]}. Their fitness goal is {user[1]}. They last talked to you on {user[2]}. Greet them warmly as a returning user and reference what you know about them."}"
 
     client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     response = client.chat.completions.create(
